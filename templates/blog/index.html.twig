@@ -1,0 +1,23 @@
+{# herite du theme de base #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container row">
+    {% for article in articles %}
+        <section class="card text-dark bg-primary m-3 col-3" style="max-width: 20rem;">
+            <div class="card-header">{{ article.title }}</div>
+            <div class="card-body">
+            <p>{{ article.category }}</p>
+                <h4 class="card-title">{{ article.authorName }}</h4>
+                <p class="card-text">{{ article.content }}</p>
+            </div>
+            <a href="{{ path('article',{'id':article.id}) }}" class="btn btn-success">Voir</a>
+        </section>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+
